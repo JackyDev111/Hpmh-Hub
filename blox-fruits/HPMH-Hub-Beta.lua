@@ -6,7 +6,7 @@ local Window = Fluent:CreateWindow({
     Title = "HPMH Hub",
     SubTitle = "by Hapor Dev - Beta Version",
     TabWidth = 160,
-    Size = UDim2.fromOffset(600, 350),
+    Size = UDim2.fromOffset(600, 325),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Darker",
     MinimizeKey = Enum.KeyCode.End -- Used when theres no MinimizeKeybind
@@ -4706,7 +4706,7 @@ end)
 --Player
 
 Tabs.Player:AddParagraph({
-    Title = "Player Section"
+    Title = "Player Section",
     Content = "Player Functions."
 })
 
@@ -5640,7 +5640,7 @@ end)
 --RaceV4
 
 Tabs.Race:AddParagraph({
-    Title = "Race Section"
+    Title = "Race Section",
     Content = "Race functions."
 })
 
@@ -5929,7 +5929,7 @@ end)
 --shop
 
 Tabs.Shop:AddParagraph({
-    Title = "Shop Section"
+    Title = "Shop Section",
     Content = "Shop Function"
 })
 
@@ -6100,7 +6100,7 @@ Tabs.Shop:AddButton({
 --misc
 
 Tabs.Misc:AddParagraph({
-    Title = "Miscellaneous Section"
+    Title = "Miscellaneous Section",
     Content = "Misc Functions."
 })
 
@@ -6304,3 +6304,6 @@ Tabs.Misc:AddButton({
 		game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
 	end
 })
+
+
+-- Script Made by Hapor Dev
