@@ -3523,7 +3523,7 @@ ToggleCake:OnChanged(function(Value)
     end)
 
 
-    local ToggleMaterial = Tabs.Main:AddToggle("ToggleMaterial", {Title = "Auto cov khoom ua liaj ua teb (farmmaterial)", Default = false })
+    local ToggleMaterial = Tabs.Main:AddToggle("ToggleMaterial", {Title = "Auto Farm Selected Material", Default = false })
 
     ToggleMaterial:OnChanged(function(Value)
         _G.AutoMaterial = Value
@@ -4373,12 +4373,25 @@ end
     Options.ToggleFastAttack:SetValue(true)
 
     local ToggleTurnOnV4 = Tabs.Setting:AddToggle("ToggleTurnOnV4", {Title = "Auto Turn On V4", Default = true })
-    ToggleTurnOnV4:OnChanged(function(vu)
-        game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
-        wait(0.1)
-        game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
-    end)
-    Options.ToggleTurnOnV4:SetValue(true)
+
+    -- Function to handle toggle changes
+    local function OnToggleChanged(value)
+        if value then
+            -- Toggle is turned on, send key events
+            game:GetService("VirtualInputManager"):SendKeyEvent(true, "Y", false, game)
+            wait(0.1)
+            game:GetService("VirtualInputManager"):SendKeyEvent(true, "Y", false, game)
+        else
+            -- Toggle is turned off, stop sending key events
+            -- You can add any additional cleanup code here
+        end
+    end
+
+    -- Set the initial state of the toggle to "on"
+    ToggleTurnOnV4:SetValue(true)
+
+    -- Set up the OnChanged event listener
+    ToggleTurnOnV4:OnChanged(OnToggleChanged)
 
 _G.FastAttackDelay = 0.1 -- Test 0.1 Attack Speed if kick or not
 
