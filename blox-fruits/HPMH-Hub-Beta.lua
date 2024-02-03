@@ -6,7 +6,7 @@ local Window = Fluent:CreateWindow({
     Title = "HPMH Hub",
     SubTitle = "by Hapor Dev - Beta Version",
     TabWidth = 160,
-    Size = UDim2.fromOffset(600, 325),
+    Size = UDim2.fromOffset(600, 350),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Darker",
     MinimizeKey = Enum.KeyCode.End -- Used when theres no MinimizeKeybind
@@ -6304,6 +6304,3 @@ Tabs.Misc:AddButton({
 		game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
 	end
 })
-
-
--- Script Made by Hapor Dev
