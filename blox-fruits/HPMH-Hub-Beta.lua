@@ -4378,7 +4378,6 @@ end
         wait(0.1)
         game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
     end)
-    Options.ToggleTurnOnV4:SetValue(false)
 
 _G.FastAttackDelay = 0.1 -- Test 0.1 Attack Speed if kick or not
 
@@ -4524,7 +4523,7 @@ CamShake:Stop()
 
 
 
-    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Reset to TP", Default = false })
+    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Reset to TP", Default = true })
     ToggleBypassTP:OnChanged(function(Value)
         BypassTP = Value
     end)
