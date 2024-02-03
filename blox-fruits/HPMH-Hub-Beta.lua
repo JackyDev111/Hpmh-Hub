@@ -4089,8 +4089,8 @@ end
 
 
      Tabs.Main:AddParagraph({
-        Title = "Cov khoom",
-        Content = "Auto tau cov khoom"
+        Title = "Get Item",
+        Content = "Auto Get Item."
     })
 
 
@@ -4372,26 +4372,12 @@ end
     end)
     Options.ToggleFastAttack:SetValue(true)
 
-    local ToggleTurnOnV4 = Tabs.Setting:AddToggle("ToggleTurnOnV4", {Title = "Auto Turn On V4", Default = true })
-
-    -- Function to handle toggle changes
-    local function OnToggleChanged(value)
-        if value then
-            -- Toggle is turned on, send key events
-            game:GetService("VirtualInputManager"):SendKeyEvent(true, "Y", false, game)
-            wait(0.1)
-            game:GetService("VirtualInputManager"):SendKeyEvent(true, "Y", false, game)
-        else
-            -- Toggle is turned off, stop sending key events
-            -- You can add any additional cleanup code here
-        end
-    end
-
-    -- Set the initial state of the toggle to "on"
-    ToggleTurnOnV4:SetValue(true)
-
-    -- Set up the OnChanged event listener
-    ToggleTurnOnV4:OnChanged(OnToggleChanged)
+    local ToggleTurnOnV4 = Tabs.Setting:AddToggle("ToggleTurnOnV4", {Title = "Auto Turn On V4", Default = false })
+    ToggleTurnOnV4:OnChanged(function(vu)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
+        wait(0.1)
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
+    end)
 
 _G.FastAttackDelay = 0.1 -- Test 0.1 Attack Speed if kick or not
 
