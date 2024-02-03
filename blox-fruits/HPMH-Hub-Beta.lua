@@ -4372,7 +4372,7 @@ end
     end)
     Options.ToggleFastAttack:SetValue(true)
 
-    local ToggleTurnOnV4 = Tabs.Setting:AddToggle("ToggleTurnOnV4", {Title = "Auto Turn On V4", Default = false })
+    local ToggleTurnOnV4 = Tabs.Setting:AddToggle("ToggleTurnOnV4", {Title = "Auto Turn On V4", Default = true })
     ToggleTurnOnV4:OnChanged(function(vu)
         game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
         wait(0.1)
