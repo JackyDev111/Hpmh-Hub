@@ -4371,12 +4371,6 @@ end
         FastAttack = vu
     end)
     Options.ToggleFastAttack:SetValue(true)
-    
-    ToggleTurnOnV4:OnChanged(function(vu)
-        game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
-        wait(0.1)
-        game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
-    end)
 
 _G.FastAttackDelay = 0.1 -- Test 0.1 Attack Speed if kick or not
 
@@ -4526,7 +4520,7 @@ CamShake:Stop()
     ToggleBypassTP:OnChanged(function(Value)
         BypassTP = Value
     end)
-    Options.ToggleBypassTP:SetValue(false)
+    Options.ToggleBypassTP:SetValue(true)
 end
 
 
@@ -6307,6 +6301,12 @@ Tabs.Misc:AddButton({
 		game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
 	end
 })
+
+ToggleTurnOnV4:OnChanged(function(vu)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
+    wait(0.1)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
+end)
 
 
 -- Script Made by Hapor Dev
