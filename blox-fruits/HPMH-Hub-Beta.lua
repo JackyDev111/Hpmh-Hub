@@ -4373,13 +4373,13 @@ end
     Options.ToggleFastAttack:SetValue(true)
 
     local ToggleTurnOnV4 = Tabs.Setting:AddToggle("ToggleTurnOnV4", {Title = "Auto Turn On V4", Default = false })
-        ToggleTurnOnV4:OnChanged(function(vu)
-     ff = vu
-        end)
-     if ff then
-            game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
-            wait(0.1)
-            game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
+    ToggleTurnOnV4:OnChanged(function(vu)
+ ff = vu
+    end)
+ if ff then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
+        wait(0.1)
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
 end
 
 _G.FastAttackDelay = 0.1 -- Test 0.1 Attack Speed if kick or not
