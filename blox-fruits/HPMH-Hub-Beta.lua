@@ -34,7 +34,7 @@ _G.KaitunConfig = {
 
     ["RedeemCode Level"] = 2,
 
-    ["White Sreen"] = false,
+    ["White Sreen"] = true,
 
     ["LimitFragment"] = 100000,
 
