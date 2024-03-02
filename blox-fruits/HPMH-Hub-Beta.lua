@@ -1,108 +1,109 @@
-repeat wait()until game:IsLoaded()
-
-_G.Ui_Hide = false
-_G.KaitunConfig = {
-    ["Start Farm"] = true,
-    -- all melee is already do with it self
-    -- auto activate list ( Auto Do List )
-    --[[ //auto activate list//
-        GodHuman, all melee
-        get god human material
-        random fruit , store fruit
-        smart code redeem
-
-        / sea 1
-        auto go sea 2
-        skip farm level
-        saber
-        kill Greybeard (bisento v2)
-
-        / sea 2
-        auto go sea 3
-        kill darkbeard
-        race v2
-        bartilo
-
-        / sea 3
-        kill boss
-
-        dough awaking
-        CDK
-        elite hunter
-    ]]
-    ["Auto Fruit"] = true, -- tween to fruit
-
-    ["RedeemCode Level"] = 2,
-
-    ["White Sreen"] = false,
-
-    ["LimitFragment"] = 100000,
-
-    -- item
-
-    ["Boss List"] = { -- put boss for farm item ---pls dont put boss that have requirement (like Saber boss dofrmigo) because it already kill if can
-        "The Saw [Lv. 100] [Boss]",
-        "Greybeard [Lv. 750] [Raid Boss]",
-    
-        "Darkbeard [Lv. 1000] [Raid Boss]",
-        "Cursed Captain [Lv. 1325] [Raid Boss]",
-
-        "Captain Elephant [Lv. 1875] [Boss]",
-        "Soul Reaper [Lv. 2100] [Raid Boss]",
-        "Dough King [Lv. 2300] [Raid Boss]",
-        "Cake Prince [Lv. 2300] [Raid Boss]",
-        "rip_indra True Form [Lv. 5000] [Raid Boss]",
-        "Beautiful Pirate [Lv. 1950] [Boss]",
-        "Cake Queen [Lv. 2175] [Boss]"
-    },
-
-    -- sea 1
-    ["PlayerHunter"] = true, -- will do skip lvl too
-    ["Player Hunter Hop"] = true,
-
-    -- sea 2
-    ["Auto Factory"] = true,
-    ["Rengoku"] = true,
-    ["Sea 3 Hop"] = true, -- hop to find fruit
-    ["Race v3"] = true,
-    
-    -- sea 3
-    ["CDK"] = true,
-    ["Tushita"] = true,
-    ["Yama"] = true,
-    ["Soul Guitar"] = true,
-
-    -- Add On
-    ["Farm When Lvl Max"] = "Katakuri", -- Bone , Katakuri , Coco
-    ["Race Lock"] = "notlock", -- Human , Mink , Fishman , put other mean not lock
-    ["FPS Cap"] = 60,
-
-    ["Buy Haki Color"] = true, -- will buy only Snow White,Pure Red,Winter Sky
-    ["Auto Legendary Sword"] = true,
-    ["Auto TTK"] = true,
-
-    -- Sword
-    ["Mastery Sword"] = true, -- will farm mastery
-    ["Select Rarity"] = {"Mythical","Legendary","Rare","Uncommon","Common"}, -- Common , Uncommon,Rare,Legendary,Mythical
-
-    -- Fruit
-    ["Select Main Devil Fruit Sniper"] = {"Dragon-Dragon","Spirit-Spirit","Venom-Venom","Dough-Dough"}, -- if have will eat
-    ["Select Sub Devil Fruit Sinper"] = {"Ice-Ice","Sand-Sand","Dark-Dark","Quake-Quake","Light-Light"}, -- will eat if not have main fruit
-    ["Allow Eat Fruit In Inventory"] = true,
-    ["Start Sniper"] = true,
-    
-    -- Fruit2
-    ["Safe Fruit"] = {"Dragon-Dragon","Spirit-Spirit","Venom-Venom","Dough-Dough"}, -- will not use this fruit to raids or anyting
-
-    -- Webhook
-    ["Link Webhook"] = "",
-    ["Start Webhook"] = false,
-    ["Webhook Mode"] = "Send Every .. min", -- "Send Every .. min","Send On Level Max","Send On Level Max And Every .. min"
-    ["Webhook Minute"] = 3, -- mean 3 Minute
-    ["tag user"] = true,
-    ["Send Test Webhook"] = false,
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players
+repeat task.wait() until game.Players.LocalPlayer
+repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+_G.Team = "Pirate" -- Marine / Pirate
+_G.KAITUN_SCRIPT = true
+_G.LogsDes = {
+    ["Enabled"] = true, -- เปิดการใช้งาน
+    ["SendAlias"] = true, -- เปิดการส่ง Alias
+    ["SendDescription"] = true, -- เปิดการส่ง Des
+    ["DelaySend"] = 5 -- วินาที
+}
+_G.WebHook = {
+    ["Enabled"] = true, -- เปิดการใช้งาน
+    ["Url"] = "", -- ลิ้งค์เว็บฮุก
+    ["Delay"] = 60 -- วินาที
+}
+_G.MainSettings = {
+        ["EnabledHOP"] = true, -- เปิด HOP ( มันไม่มีอยู่ละใส่มาเท่ๆ )
+        ['FPSBOOST'] = true, -- ภาพกาก
+        ["FPSLOCKAMOUNT"] = 30, -- จำนวน FPS
+        ['WhiteScreen'] = false, -- จอขาว
+        ['CloseUI'] = false, -- ปิด Ui
+        ["NotifycationExPRemove"] = true, -- ลบ ExP ที่เด้งตอนฆ่ามอน
+        ['AFKCheck'] = 150, -- ถ้ายืนนิ่งเกินวิที่ตั้งมันจะรีเกม
+        ["LockFragments"] = 20000, -- ล็อคเงินม่วง
+        ["LockFruitsRaid"] = { -- ล็อคผลที่ไม่เอาไปลงดัน
+            [1] = "Dough-Dough",
+            [2] = "Dragon-Dragon"
+        }
+    }
+_G.Fruits_Settings = { -- ตั้งค่าผล
+    ['Main_Fruits'] = {'Dough-Dough'}, -- ผลหลัก ถ้ายังไม่ใช่ค่าที่ตั้งมันจะกินจนกว่าจะใช่หรือซื้อ
+    ['Select_Fruits'] = {"Flame-Flame", "Ice-Ice", "Quake-Quake", "Light-Light", "Dark-Dark", "Spider-Spider", "Rumble-Rumble", "Magma-Magma", "Buddha-Buddha"} -- กินหรือซื้อตอนไม่มีผล
+}
+_G.Quests_Settings = { -- ตั้งค่าเควสหลักๆ
+    ['Rainbow_Haki'] = true,
+    ["MusketeerHat"] = true,
+    ["PullLever"] = true,
+    ['DoughQuests_Mirror'] = {
+        ['Enabled'] = true,
+        ['UseFruits'] = true
+    }        
+}
+_G.Races_Settings = { -- ตั้งค่าเผ่า
+    ['Race'] = {
+        ['EnabledEvo'] = true,
+        ["v2"] = true,
+        ["v3"] = true,
+        ["Races_Lock"] = {
+            ["Races"] = { -- Select Races U want
+                ["Mink"] = true,
+                ["Human"] = true,
+                ["Fishman"] = true
+            },
+            ["RerollsWhenFragments"] = 20000 -- Random Races When Your Fragments is >= Settings
+        }
+    }
+}
+_G.Settings_Melee = { -- หมัดที่จะทำ
+    ['Superhuman'] = true,
+    ['DeathStep'] = true,
+    ['SharkmanKarate'] = true,
+    ['ElectricClaw'] = true,
+    ['DragonTalon'] = true,
+    ['Godhuman'] = true
+}
+_G.FarmMastery_Settings = {
+    ['Melee'] = true,
+    ['Sword'] = true,
+    ['DevilFruits'] = true,
+    ['Select_Swords'] = {
+        ["AutoSettings"] = true, -- ถ้าเปิดอันนี้มันจะเลือกดาบให้เองหรือฟาร์มทุกดาบนั่นเอง
+        ["ManualSettings"] = { -- ถ้าปรับ AutoSettings เป็น false มันจะฟาร์มดาบที่เลือกตรงนี้ ตัวอย่างข้างล่าง
+            "Saber",
+            "Buddy Sword"
+        }
+    }
+}
+_G.SwordSettings = { -- ดาบที่จะทำ
+    ['Saber'] = true,
+    ["Pole"] = true,
+    ['MidnightBlade'] = true,
+    ['Shisui'] = true,
+    ['Saddi'] = true,
+    ['Wando'] = true,
+    ['Yama'] = true,
+    ['Rengoku'] = true,
+    ['Canvander'] = true,
+    ['BuddySword'] = true,
+    ['TwinHooks'] = true,
+    ['HallowScryte'] = true,
+    ['TrueTripleKatana'] = true,
+    ['CursedDualKatana'] = true
+}
+_G.SharkAnchor_Settings = {
+    ["Enabled_Farm"] = true,
+}
+_G.GunSettings = { -- ปืนที่จะทำ
+    ['Kabucha'] = true,
+    ['SerpentBow'] = true,
+    ['SoulGuitar'] = true
 }
 
-_G.Key = "QRDQE-P6EEK-14ZMX"
-_G.DiscordId = "920554890030379069"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Natsuhanaki/Royx_PC/main/loader.lua"))();
+getgenv().Key = "MARU-ZEYQ-GJYZX-SULL-4H7LO-V8FY"
+getgenv().id = "920554890030379069"
+getgenv().Script_Mode = "Kaitun_Script"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
