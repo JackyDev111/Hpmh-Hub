@@ -86,6 +86,7 @@ _G.SwordSettings = { -- ดาบที่จะทำ
     ['Saddi'] = true,
     ['Wando'] = true,
     ['Yama'] = true,
+    ['Tushita'] = true,
     ['Rengoku'] = true,
     ['Canvander'] = true,
     ['BuddySword'] = true,
