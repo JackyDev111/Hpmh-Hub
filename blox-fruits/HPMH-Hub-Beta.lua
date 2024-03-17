@@ -19,7 +19,7 @@ getgenv().Configs = {
     -- World 2
     AutoRengoku = true,
     AutoQuestFlower = true,
-    AutoRaceV3 = false,
+    AutoRaceV3 = true,
     AutoBartiloQuest = true,
     AutoCursedCaptain = true,
     AutoDarkbeard = true,
