@@ -1,5 +1,3 @@
--- Enabled BountyMode
-_G.BountyMode = true
 shared.Team = "Pirates" -- "Marines" & "Pirates"
 _G.BountyConfig = {
     ["Webhook"] = {
@@ -155,6 +153,8 @@ _G.BountyConfig = {
     }
 }
 
+-- Enabled BountyMode
+_G.BountyMode = true
 -- If you have more than 1 key, select only 1.
 _G.Key = "LuxuryV2_p506ahreinpx2cx4l5gn"
 
