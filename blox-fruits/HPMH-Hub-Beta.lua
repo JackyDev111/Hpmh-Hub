@@ -17,7 +17,7 @@ _G.BountyConfig = {
 	["Add On"] = {
 		["Skip Fuck User"] = true, -- skip door and budha 
 		["Tp Around"] = false,
-		["Server Hop Region"] = "", -- find with u self '=' can use abbreviation like jap , tok if not put = auto
+		["Server Hop Region"] = "auto", -- find with u self '=' can use abbreviation like jap , tok if not put = auto
 		["Add Range"] = 0, -- add range from u and target
 		["Black Screen"] = false,
 		["Hop Server Time"] = {
